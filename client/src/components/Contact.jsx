@@ -53,11 +53,7 @@ const Contact = () => {
         className=" mb-10 font-semibold text-center text-4xl md:text-[40px] capitalize text-[#313bac]"
       >
         <p className="mb-5">
-          {" "}
-          I Know That <span className="text-[#073B4C]">Good Design</span>{" "}
-        </p>
-        <p className=" dark:text-richblue-100">
-          means <span className="text-[#073B4C]">Good Buisness</span>
+          Feel Free to <span className="text-[#073B4C]">Contact Me</span>{" "}
         </p>
       </motion.div>
       <div className="flex flex-col md:flex-row pt-8 justify-center bg-gray-200 rounded-md border border-gray-300 pb-8 items-center ">
