@@ -4,6 +4,8 @@ import { SiGeeksforgeeks } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varients";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -12,15 +14,44 @@ const Contact = () => {
 
   const contactfunc = async () => {
     try {
-      
+      const userInfo = await fetch(
+        "https://portfolio-backend-a09y.onrender.com/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
+      if (userInfo.ok) {
+        alert("Message sent successfully");
+        setEmail("");
+        setMessage("");
+        setName("");
+      } else {
+        alert("Something went wrong");
+        setEmail("");
+        setMessage("");
+        setName("");
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="md:p-6 p-2 rounded-lg shadow-md h-[90vh] mt-10 mb-24 ">
-      <div className=" mb-10 font-semibold text-center text-4xl md:text-[40px] capitalize text-[#313bac]">
+    <div
+      id="contact"
+      className="md:p-6 p-2 rounded-lg shadow-md h-[90vh] mt-10 mb-24 "
+    >
+      <motion.div
+        variants={fadeIn("down", 0.1)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 1 }}
+        className=" mb-10 font-semibold text-center text-4xl md:text-[40px] capitalize text-[#313bac]"
+      >
         <p className="mb-5">
           {" "}
           I Know That <span className="text-[#073B4C]">Good Design</span>{" "}
@@ -28,7 +59,7 @@ const Contact = () => {
         <p className=" dark:text-richblue-100">
           means <span className="text-[#073B4C]">Good Buisness</span>
         </p>
-      </div>
+      </motion.div>
       <div className="flex flex-col md:flex-row pt-8 justify-center bg-gray-200 rounded-md border border-gray-300 pb-8 items-center ">
         <div className="w-full md:w-1/2 md:border-r-2 border-gray-400">
           <div className="text-center mb-6">
@@ -74,30 +105,39 @@ const Contact = () => {
               Social Media Links
             </h1>
             <div className="flex justify-center gap-14">
-              <a
+              <motion.a
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
                 href="https://www.linkedin.com/in/pavan-kapadiya-6b7789273/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#313bac] hover:text-bg-[#333ccc]"
               >
                 <AiFillLinkedin className="text-5xl" />
-              </a>
-              <a
-                href="https://github.com/Pavan14075"
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                href="https://github.com/Pavan-2929"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#313bac] hover:text-bg-[#333ccc]"
               >
                 <AiFillGithub className="text-5xl" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
                 href="https://auth.geeksforgeeks.org/user/kapadiya_pavan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#313bac] hover:text-bg-[#333ccc]"
               >
                 <SiGeeksforgeeks className="text-5xl" />
-              </a>
+              </motion.a>
             </div>
           </div>
           <div className="text-center mb-6 md:mt-20 mt-10">
@@ -110,7 +150,7 @@ const Contact = () => {
                 className="flex items-center text-[#313bac] hover:text-bg-[#333ccc]"
               >
                 <MdEmail className="text-3xl" />
-                <h2 className="text-gray-400 ml-2">
+                <h2 className="text-gray-600 ml-2">
                   kapadiyapavan3218@gmail.com
                 </h2>
               </a>
@@ -119,7 +159,7 @@ const Contact = () => {
                 className="flex items-center text-[#313bac] hover:text-bg-[#333ccc]"
               >
                 <BiSolidPhoneCall className="text-3xl" />
-                <h2 className="text-gray-400 ml-2">(+91) XXXXXXXXXXX</h2>
+                <h2 className="text-gray-600 ml-2">(+91) 7574808971</h2>
               </a>
             </div>
           </div>

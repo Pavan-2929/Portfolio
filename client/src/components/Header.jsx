@@ -9,9 +9,17 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (id) => {
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="sticky top-0 z-50 border-b-2 border-gray-400">
-      <div className="flex sticky justify-around items-center bg-gray-200 p-4">
+      <div className="flex sticky justify-around items-center bg-gray-200 p-3">
         <div>
           <p className="font-bold text-[1.8rem]">
             <span className="text-[#313bac]">PAVAN</span>{" "}
@@ -23,9 +31,14 @@ const Header = () => {
               links.map((link, index) => (
                 <li
                   key={index}
-                  className="text-gray-600 font-semibold hover:text-[#313bac] text-[1.2rem]"
+                  className="text-gray-600 font-semibold hover:text-[#313bac] text-[1.1rem]"
                 >
-                  <a className="cursor-pointer">{link.name}</a>
+                  <a
+                    className="cursor-pointer"
+                    onClick={() => scrollToSection(link.path)}
+                  >
+                    {link.name}
+                  </a>
                 </li>
               ))}
           </ul>
@@ -58,7 +71,12 @@ const Header = () => {
                 key={index}
                 className="text-gray-600 text-[1.1rem] font-semibold"
               >
-                <a className="cursor-pointer">{link.name}</a>
+                <a
+                  className="cursor-pointer"
+                  onClick={() => scrollToSection(link.path)}
+                >
+                  {link.name}
+                </a>
               </li>
             ))}
         </ul>

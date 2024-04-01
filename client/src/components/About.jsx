@@ -1,20 +1,38 @@
 import React from "react";
 import { cards } from "../data/About";
+import { motion } from "framer-motion";
+import { fadeIn } from "../varients";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center w-11/12 mx-auto max-w-7xl   justify-center ">
-      <div className=" mb-10 font-semibold text-center text-4xl md:text-[52px] capitalize text-[#313bac]">
-        <p className=" dark:text-richblue-100 mb-5">
+    <div id="about" className="flex flex-col items-center w-11/12 mx-auto max-w-7xl   justify-center mt-20">
+      <div className="  font-semibold text-center text-4xl md:text-[52px] capitalize text-[#313bac] mb-10">
+        <motion.p
+          variants={fadeIn("right", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className=" dark:text-richblue-100 mb-5"
+        >
           I Know That <span className="text-[#073B4C]">Good Design</span>{" "}
-        </p>
-        <p className=" dark:text-richblue-100">
+        </motion.p>
+        <motion.p
+          variants={fadeIn("right", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className=" dark:text-richblue-100"
+        >
           means <span className="text-[#073B4C]">Good Buisness</span>
-        </p>
+        </motion.p>
       </div>
-      <div className=" flex-col sm:flex-row mb-10 flex gap-28 mt-14">
+      <div className=" flex-col md:flex-row md:mb-10 justify-center flex gap-12  md:gap-28 md:mt-14 flex-wrap">
         {cards.map((card, index) => (
-          <div
+          <motion.div
+            variants={fadeIn("down", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 1 }}
             key={index}
             className=" flex flex-col items-start gap-4 w-[300px] bg-gray-200 text-center p-4 rounded-md"
           >
@@ -27,7 +45,7 @@ const About = () => {
               <h1 className="font-bold">{card.name}</h1>
             </div>
             <h1>{card.description}</h1>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
