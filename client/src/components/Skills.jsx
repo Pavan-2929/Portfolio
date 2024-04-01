@@ -28,7 +28,7 @@ const Skills = () => {
           {Achievements.map((item, index) => (
             <div
               key={index}
-              className="items-baseline flex-col sm:flex-row my-5 flex gap-2 sm:gap-5 bg-gray-100 p-4 rounded-md border border-gray-200"
+              className="items-baseline flex-col sm:flex-row my-5 flex gap-2 sm:gap-5 bg-gray-200 p-4 rounded-md border border-gray-300"
             >
               <div className="w-full text-sm ">
                 <p className="w-full sm:w-[80%] mb-4 text-2xl font-semibold">
