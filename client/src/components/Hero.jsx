@@ -3,7 +3,7 @@ import HeroImage from "../assets/Hero.png";
 
 const Hero = () => {
   return (
-    <div className="sm:ml-20 relative flex h-auto md:mt-20 mt-4 flex-1  p-2 items-center flex-wrap-reverse">
+    <div className="sm:ml-20 relative flex flex-1  p-2 items-center flex-wrap-reverse h-[90vh]">
       <div className="z-20 mb-5 justify-center md:w-[50vw]">
         <div className="mb-10 font-semibold">
           <p className="text-[25px]">Hello,</p>

@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <nav>
-      <div className="flex justify-around items-center bg-[#e4e4e4] p-4">
+      <div className="flex justify-around items-center bg-gray-100 p-4">
         <div>
           <p className="font-extrabold text-[1.8rem]">
             <span className="text-[#073B4C]">PAVAN</span>{" "}
