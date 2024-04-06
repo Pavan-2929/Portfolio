@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="sm:ml-20 relative flex flex-1  p-2 items-center flex-wrap-reverse h-[90vh]"
+      className="sm:ml-20 mt-10 md:mt-0 relative flex flex-1  p-2 items-center flex-wrap-reverse h-auto md:h-[90vh]"
     >
       <div className="z-20 mb-5 justify-center md:w-[50vw]">
         <div className="mb-10 font-semibold">
@@ -43,7 +43,7 @@ const Hero = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="h-[80%] md:my-0 my-10"
+        className="h-[80%] md:my-0 hidden md:inline-block"
       >
         <img src={HeroImage} alt="Hero" />
       </motion.div>
